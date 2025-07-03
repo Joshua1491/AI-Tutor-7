@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore – @next/bundle-analyzer has no type definitions
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

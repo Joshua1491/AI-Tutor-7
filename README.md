@@ -1,3 +1,19 @@
+# AI Tutor 7
+
+## Quick start
+
+```bash
+pnpm i && pnpm dev
+```
+
+## Environment variables
+
+| Name           | Purpose         |
+| -------------- | --------------- |
+| OPENAI_API_KEY | Chat completion |
+
+_This repo follows the **Code-Guardian** ruleset (see `docs/rules.md`)._
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +50,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## Setup
+
+```bash
+pnpm i
+pnpm dev
+```
+
+## Repo Rules & Features
+
+- Feature-slice folder structure (`src/app/(main)/dashboard`)
+- Tailwind CSS with shadcn-ui preset & Inter font
+- Strict TypeScript, ESLint (Next.js config), Prettier & Husky pre-commit (`pnpm lint`, `pnpm test`, `prettier --check .`)
+- Vitest + React Testing Library (`pnpm test`)
+- Dynamic `chart.js` loading for eco-efficiency
+- GitHub Actions CI running lint, test & build
