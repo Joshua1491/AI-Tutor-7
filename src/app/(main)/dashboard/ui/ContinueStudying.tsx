@@ -6,11 +6,11 @@ export function ContinueStudying({
   list: { subject: string; topic: string }[];
 }) {
   return (
-    <div className="flex flex-col rounded-xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 p-6 text-white shadow-lg">
+    <div className="flex h-80 flex-col rounded-xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 p-6 text-white shadow-lg">
       <h2 className="mb-4 text-lg font-semibold tracking-tight">
         Continue studying
       </h2>
-      <div className="grid gap-4">
+      <div className="space-y-4">
         {list.map((item) => (
           <div
             key={item.topic}

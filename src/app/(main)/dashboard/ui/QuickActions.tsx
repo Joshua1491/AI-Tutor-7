@@ -1,19 +1,13 @@
 "use client";
-import Link from "next/link";
-import { PlayCircle, FileText, BookOpen } from "lucide-react";
-
-const iconMap = {
-  "Practice Quiz": PlayCircle,
-  "Flash Cards": FileText,
-  "New Lesson": BookOpen,
-} as const;
+import type { ComponentType } from "react";
 
 interface Action {
-  label: string;
-  href: string;
+  title: string;
+  desc: string;
+  icon?: ComponentType<{ className?: string }>;
 }
 
-export function QuickActions({ actions }: { actions: any[] }) {
+export function QuickActions({ actions }: { actions: Action[] }) {
   return (
     <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {actions.map(({ title, desc, icon: Icon }, i) => (

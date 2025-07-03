@@ -1,6 +1,7 @@
 "use client";
 import { Flame, Award, TrendingUp } from "lucide-react";
 import type { Stats } from "../logic";
+import type { ComponentType } from "react";
 
 export function StatsCards({ stats }: { stats: Stats }) {
   return (
@@ -46,13 +47,15 @@ function Card({
   value,
 }: {
   gradient: string;
-  icon: any;
+  icon: ComponentType<{ className?: string }>;
   title: string;
   subtitle: string;
   value: string | number;
 }) {
   return (
-    <div className={`flex items-center gap-6 rounded-xl bg-gradient-to-r ${gradient} p-6 shadow-lg`}>
+    <div
+      className={`flex items-center gap-6 rounded-xl bg-gradient-to-r ${gradient} p-6 shadow-lg`}
+    >
       <div className="relative">
         <svg className="h-16 w-16" viewBox="0 0 36 36" fill="none">
           <circle
@@ -69,6 +72,7 @@ function Card({
       <div>
         <div className="font-medium text-white">{title}</div>
         <div className="text-xs text-blue-200">{subtitle}</div>
+        <div className="text-xl font-semibold text-white mt-1">{value}</div>
       </div>
     </div>
   );

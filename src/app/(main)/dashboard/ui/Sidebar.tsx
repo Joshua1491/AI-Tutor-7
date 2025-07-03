@@ -11,7 +11,6 @@ import {
   Upload,
   Settings,
 } from "lucide-react";
-import clsx from "clsx";
 
 interface SidebarProps {
   active?: string;
@@ -39,10 +38,12 @@ export function Sidebar({ active }: SidebarProps) {
       <nav className="flex-1 overflow-y-auto space-y-1 px-4 pb-6">
         {nav.map(({ href, icon: Icon, label }) => (
           <Link
-            key={href}
+            key={label}
             href={href}
             className={`flex items-center gap-2 rounded-lg px-3 py-2 ${
-              href === active ? "bg-white/10" : "hover:bg-white/10 text-white/80"
+              href === active
+                ? "bg-white/10"
+                : "hover:bg-white/10 text-white/80"
             }`}
           >
             <Icon className="h-4 w-4" /> {label}
