@@ -2,8 +2,8 @@ import { Sidebar } from "./ui/Sidebar";
 import { Topbar } from "./ui/Topbar";
 import { StatsCards } from "./ui/StatsCards";
 import { QuickActions } from "./ui/QuickActions";
-import { WeeklyProgressChart } from "./ui/WeeklyProgressChart";
 import { ContinueStudying } from "./ui/ContinueStudying";
+import { WeeklyProgressChart } from "./ui/WeeklyProgressChart";
 import { getDashboardData } from "./logic";
 
 export default async function DashboardPage() {
@@ -18,10 +18,11 @@ export default async function DashboardPage() {
           <button className="w-full rounded-xl bg-sky-600 py-4 text-lg font-medium text-white shadow hover:bg-purple-700">
             Choose Your Examination!!
           </button>
-          <QuickActions actions={data.actions} />
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          <QuickActions actions={data.actions as any} />
           <div className="grid gap-6 lg:grid-cols-2">
             <WeeklyProgressChart series={data.weekly} />
-            <ContinueStudying list={data.continueStudying} />
+            <ContinueStudying list={[...data.continueStudying]} />
           </div>
         </main>
       </div>

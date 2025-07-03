@@ -1,49 +1,78 @@
 "use client";
 import { Flame, Award, TrendingUp } from "lucide-react";
 import type { Stats } from "../logic";
-
-const cards = [
-  {
-    key: "streak",
-    label: "Day Streak",
-    icon: Flame,
-  },
-  {
-    key: "xp",
-    label: "Total XP",
-    icon: Award,
-  },
-  {
-    key: "progress",
-    label: "Course Progress",
-    icon: TrendingUp,
-  },
-] as const;
+import type { ComponentType } from "react";
 
 export function StatsCards({ stats }: { stats: Stats }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {cards.map(({ key, label, icon: Icon }) => (
-        <div
-          key={key}
-          className="rounded-xl bg-white p-6 shadow-sm flex items-center gap-4"
-        >
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-sky-100 text-sky-600">
-            <Icon className="h-6 w-6" />
-          </div>
-          <div>
-            <p className="text-sm text-gray-500">{label}</p>
-            <p className="text-xl font-semibold">
-              {key === "progress"
-                ? `${stats[key]}%`
-                : stats[key as keyof Stats]}
-            </p>
-          </div>
-        </div>
-      ))}
-      <div className="sm:col-span-3 rounded-xl bg-gradient-to-r from-purple-500 to-sky-500 p-6 text-white">
-        <p className="mb-1 text-sm">Suggested Next Topic</p>
-        <p className="text-lg font-medium">{stats.suggestion}</p>
+    <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Day Streak */}
+      <Card
+        gradient="from-blue-500 via-purple-600 to-purple-500"
+        icon={Flame}
+        title="Streak"
+        subtitle="Days"
+        value={stats.streak}
+      />
+      {/* XP */}
+      <Card
+        gradient="from-pink-500 via-blue-600 to-purple-500"
+        icon={Award}
+        title="XP"
+        subtitle="Total XP"
+        value={stats.xp.toLocaleString()}
+      />
+      {/* Progress */}
+      <Card
+        gradient="from-pink-500 via-blue-600 to-purple-500"
+        icon={TrendingUp}
+        title="Overall Progress"
+        subtitle="75 %"
+        value={stats.progress}
+      />
+      {/* Suggested */}
+      <div className="flex flex-col justify-center rounded-xl bg-gradient-to-br from-purple-500 via-blue-600 to-pink-600 p-6 shadow-lg text-white">
+        <div className="mb-1 text-lg font-medium">Suggested for you</div>
+        <div className="font-semibold">{stats.suggestion}</div>
+      </div>
+    </section>
+  );
+}
+
+function Card({
+  gradient,
+  icon: Icon,
+  title,
+  subtitle,
+  value,
+}: {
+  gradient: string;
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  subtitle: string;
+  value: string | number;
+}) {
+  return (
+    <div
+      className={`flex items-center gap-6 rounded-xl bg-gradient-to-r ${gradient} p-6 shadow-lg`}
+    >
+      <div className="relative">
+        <svg className="h-16 w-16" viewBox="0 0 36 36" fill="none">
+          <circle
+            cx="18"
+            cy="18"
+            r="15"
+            stroke="currentColor"
+            strokeWidth="3"
+            className="text-white/30"
+          />
+        </svg>
+        <Icon className="absolute inset-0 m-auto h-6 w-6 text-white" />
+      </div>
+      <div>
+        <div className="font-medium text-white">{title}</div>
+        <div className="text-xs text-blue-200">{subtitle}</div>
+        <div className="text-xl font-semibold text-white mt-1">{value}</div>
       </div>
     </div>
   );

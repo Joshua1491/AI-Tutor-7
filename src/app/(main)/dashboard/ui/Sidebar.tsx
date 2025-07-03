@@ -1,46 +1,57 @@
 "use client";
 import Link from "next/link";
-import { Home, Library, Settings } from "lucide-react";
-import clsx from "clsx";
+import {
+  Home,
+  BookOpen,
+  Bot,
+  Video,
+  Edit3,
+  HelpCircle,
+  Book,
+  Upload,
+  Settings,
+} from "lucide-react";
 
 interface SidebarProps {
-  active?: "dashboard" | string;
+  active?: string;
 }
 
-export function Sidebar({ active = "" }: SidebarProps) {
-  const nav = [
-    { href: "/", label: "Home", icon: Home, key: "dashboard" },
-    { href: "/library", label: "Library", icon: Library, key: "library" },
-    { href: "/settings", label: "Settings", icon: Settings, key: "settings" },
-  ];
+const nav = [
+  { href: "/dashboard", icon: Home, label: "Dashboard" },
+  { href: "/exam-prep", icon: BookOpen, label: "Exam Prep" },
+  { href: "#", icon: Bot, label: "AI Tutor" },
+  { href: "#", icon: Video, label: "Video Mode" },
+  { href: "#", icon: Edit3, label: "Practice" },
+  { href: "#", icon: HelpCircle, label: "Ask Tutor" },
+  { href: "#", icon: Book, label: "Mock Examinations" },
+  { href: "#", icon: Upload, label: "Upload" },
+  { href: "#", icon: Settings, label: "Settings" },
+];
 
+export function Sidebar({ active }: SidebarProps) {
   return (
-    <aside className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-64 lg:flex-col bg-white border-r border-gray-200">
-      <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-4">
-        <div className="flex h-16 shrink-0 items-center text-2xl font-bold">
-          AI Tutor
-        </div>
-        <nav className="flex flex-1 flex-col">
-          <ul role="list" className="flex flex-1 flex-col gap-y-2">
-            {nav.map(({ href, label, icon: Icon, key }) => (
-              <li key={key}>
-                <Link
-                  href={href}
-                  className={clsx(
-                    "flex items-center gap-x-3 rounded-md p-2 text-sm font-medium hover:bg-gray-100",
-                    active === key
-                      ? "bg-gray-100 text-gray-900"
-                      : "text-gray-600",
-                  )}
-                >
-                  <Icon className="h-5 w-5" />
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+    <aside className="fixed inset-y-0 left-0 z-40 w-64 translate-x-0 bg-gray-900 text-white flex flex-col">
+      <div className="flex items-center gap-2 px-6 pt-4 pb-4">
+        <Bot className="h-6 w-6 text-indigo-400" />
+        <span className="text-lg font-semibold tracking-tight">AI Tutor</span>
       </div>
+      <nav className="flex-1 overflow-y-auto space-y-1 px-4 pb-6">
+        {nav.map(({ href, icon: Icon, label }) => (
+          <Link
+            key={label}
+            href={href}
+            className={`flex items-center gap-2 rounded-lg px-3 py-2 ${
+              href === active
+                ? "bg-white/10"
+                : "hover:bg-white/10 text-white/80"
+            }`}
+          >
+            <Icon className="h-4 w-4" /> {label}
+          </Link>
+        ))}
+      </nav>
+      {/* Gradient footer */}
+      <div className="mx-4 mb-4 mt-auto h-20 rounded-t-xl bg-gradient-to-br from-blue-600 to-purple-700" />
     </aside>
   );
 }

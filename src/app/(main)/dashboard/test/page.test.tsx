@@ -1,9 +1,10 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Topbar } from "../ui/Topbar";
 
 describe("Dashboard page", () => {
-  it("renders welcome message", () => {
+  it("renders search input", () => {
     render(<Topbar />);
-    expect(screen.getByText(/welcome back/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument();
   });
 });

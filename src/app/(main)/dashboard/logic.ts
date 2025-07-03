@@ -25,9 +25,12 @@ export async function getDashboardData() {
       suggestion: "Trigonometric Functions",
     },
     actions: [
-      { label: "Practice Quiz", icon: null, href: "/quiz" },
-      { label: "Flash Cards", icon: null, href: "/flash" },
-      { label: "New Lesson", icon: null, href: "/lesson" },
+      { title: "Practice Quiz", desc: "Mathematics", icon: null },
+      { title: "Ask AI Tutor", desc: "Type your question…", icon: null },
+      { title: "Watch next video", desc: "Introduction to Limits", icon: null },
+      { title: "Mock Examinations", desc: "", icon: null },
+      { title: "Upload textbook", desc: "Curriculum Textbook.pdf", icon: null },
+      { title: "Need help? Chat with a Human Tutor", desc: "", icon: null },
     ],
     weekly: {
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
