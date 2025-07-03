@@ -13,25 +13,20 @@ interface Action {
   href: string;
 }
 
-export function QuickActions({ actions }: { actions: readonly Action[] }) {
+export function QuickActions({ actions }: { actions: any[] }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {actions.map((action) => {
-        const Icon =
-          iconMap[action.label as keyof typeof iconMap] ?? PlayCircle;
-        return (
-          <Link
-            key={action.label}
-            href={action.href}
-            className="flex flex-col items-center justify-center rounded-xl bg-white p-6 shadow-sm hover:bg-gray-50"
-          >
-            <Icon className="mb-2 h-8 w-8 text-sky-600" />
-            <span className="text-sm font-medium text-gray-700">
-              {action.label}
-            </span>
-          </Link>
-        );
-      })}
-    </div>
+    <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {actions.map(({ title, desc, icon: Icon }, i) => (
+        <div
+          key={i}
+          className="flex flex-col gap-2 rounded-xl border border-gray-200 bg-white p-6"
+        >
+          <div className="flex items-center gap-2 text-lg font-medium">
+            {Icon && <Icon className="h-5 w-5" />} {title}
+          </div>
+          <p className="text-sm text-gray-500">{desc}</p>
+        </div>
+      ))}
+    </section>
   );
 }
