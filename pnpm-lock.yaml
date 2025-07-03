@@ -31,6 +31,9 @@ devDependencies:
   "@tailwindcss/postcss":
     specifier: ^4
     version: 4.1.11
+  "@tailwindcss/typography":
+    specifier: ^0.5.16
+    version: 0.5.16(tailwindcss@4.1.11)
   "@testing-library/jest-dom":
     specifier: ^6.6.3
     version: 6.6.3
@@ -73,6 +76,12 @@ devDependencies:
   tailwindcss:
     specifier: ^4
     version: 4.1.11
+  tailwindcss-animate:
+    specifier: ^1.0.7
+    version: 1.0.7(tailwindcss@4.1.11)
+  tailwindcss-shadcn-ui:
+    specifier: ^0.2.0
+    version: 0.2.0(tailwindcss-animate@1.0.7)(tailwindcss@4.1.11)
   typescript:
     specifier: ^5
     version: 5.8.3
@@ -1819,6 +1828,21 @@ packages:
       tailwindcss: 4.1.11
     dev: true
 
+  /@tailwindcss/typography@0.5.16(tailwindcss@4.1.11):
+    resolution:
+      {
+        integrity: sha512-0wDLwCVF5V3x3b1SGXPCDcdsbDHMBe+lkFzBRaHeLvNi+nrrnZ1lA18u+OTWO8iSWU2GxUOCvlXtDuqftc1oiA==,
+      }
+    peerDependencies:
+      tailwindcss: ">=3.0.0 || insiders || >=4.0.0-alpha.20 || >=4.0.0-beta.1"
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 4.1.11
+    dev: true
+
   /@testing-library/dom@10.4.0:
     resolution:
       {
@@ -3080,6 +3104,15 @@ packages:
       {
         integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==,
       }
+    dev: true
+
+  /cssesc@3.0.0:
+    resolution:
+      {
+        integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==,
+      }
+    engines: { node: ">=4" }
+    hasBin: true
     dev: true
 
   /cssstyle@4.6.0:
@@ -5060,6 +5093,20 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash.castarray@4.4.0:
+    resolution:
+      {
+        integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==,
+      }
+    dev: true
+
+  /lodash.isplainobject@4.0.6:
+    resolution:
+      {
+        integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==,
+      }
+    dev: true
+
   /lodash.merge@4.6.2:
     resolution:
       {
@@ -5584,6 +5631,17 @@ packages:
         integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==,
       }
     engines: { node: ">= 0.4" }
+    dev: true
+
+  /postcss-selector-parser@6.0.10:
+    resolution:
+      {
+        integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==,
+      }
+    engines: { node: ">=4" }
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
     dev: true
 
   /postcss@8.4.31:
@@ -6388,6 +6446,31 @@ packages:
       }
     dev: true
 
+  /tailwindcss-animate@1.0.7(tailwindcss@4.1.11):
+    resolution:
+      {
+        integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==,
+      }
+    peerDependencies:
+      tailwindcss: ">=3.0.0 || insiders"
+    dependencies:
+      tailwindcss: 4.1.11
+    dev: true
+
+  /tailwindcss-shadcn-ui@0.2.0(tailwindcss-animate@1.0.7)(tailwindcss@4.1.11):
+    resolution:
+      {
+        integrity: sha512-5VfcLQwrXwJdym214YgyyfmCJZug7HECdXW2Dhp3GDLjYLgl62NZwyrG9rilHufo3CdCRNnhazcoH0pl39rQmg==,
+      }
+    engines: { node: ">=18", pnpm: ">=8" }
+    peerDependencies:
+      tailwindcss: ">=3.2"
+      tailwindcss-animate: ">=1"
+    dependencies:
+      tailwindcss: 4.1.11
+      tailwindcss-animate: 1.0.7(tailwindcss@4.1.11)
+    dev: true
+
   /tailwindcss@4.1.11:
     resolution:
       {
@@ -6690,6 +6773,13 @@ packages:
       }
     dependencies:
       punycode: 2.3.1
+    dev: true
+
+  /util-deprecate@1.0.2:
+    resolution:
+      {
+        integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==,
+      }
     dev: true
 
   /vite-node@3.2.4(@types/node@20.19.4):
