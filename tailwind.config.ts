@@ -1,9 +1,13 @@
 import type { Config } from "tailwindcss";
+import { createPreset } from "tailwindcss-shadcn-ui";
+import tailwindcssAnimate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 // https://tailwindcss.com/docs/configuration
 
 export default {
   darkMode: "class",
+  presets: [createPreset()],
   content: [
     "./src/**/*.{ts,tsx}",
     "./src/app/**/*.{ts,tsx}",
@@ -75,5 +79,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate, typography],
 } satisfies Config;
