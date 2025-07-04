@@ -1,6 +1,6 @@
 "use client";
-import { Sidebar } from "../../dashboard/ui/Sidebar";
-import { Topbar } from "../../dashboard/ui/Topbar";
+import { Sidebar } from "../../(main)/dashboard/ui/Sidebar";
+import { Topbar } from "../../(main)/dashboard/ui/Topbar";
 import { getExam, Subject } from "../logic";
 import { notFound } from "next/navigation";
 import { SearchBar } from "./ui/SearchBar";
