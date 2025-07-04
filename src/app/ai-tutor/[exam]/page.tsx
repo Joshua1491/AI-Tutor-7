@@ -7,14 +7,18 @@ import { SearchBar } from "./ui/SearchBar";
 import { SubjectTabs } from "./ui/SubjectTabs";
 import { TopicGrid } from "./ui/TopicGrid";
 
-type Props = { params: { exam: string } };
+type Props = { params: Promise<{ exam: string }> };
 
 export default async function AiTutorPage({ params }: Props) {
-  const exam = await getExam(params.exam);
+  const { exam: examId } = await params;
+  const exam = await getExam(examId);
   if (!exam) notFound();
 
-  /* Default to first subject */
-  const firstSubjectId = exam!.subjects[0].id;
+  // Ensure at least one subject exists
+  if (exam.subjects.length === 0) {
+    notFound();
+  }
+  const firstSubjectId = exam.subjects[0]!.id;
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50 text-slate-900">
