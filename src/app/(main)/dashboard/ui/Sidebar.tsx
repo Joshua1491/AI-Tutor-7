@@ -19,7 +19,7 @@ interface SidebarProps {
 const nav = [
   { href: "/dashboard", icon: Home, label: "Dashboard" },
   { href: "/exam-prep", icon: BookOpen, label: "Exam Prep" },
-  { href: "#", icon: Bot, label: "AI Tutor" },
+  { href: "/ai-tutor/cat", icon: Bot, label: "AI Tutor" },
   { href: "#", icon: Video, label: "Video Mode" },
   { href: "#", icon: Edit3, label: "Practice" },
   { href: "#", icon: HelpCircle, label: "Ask Tutor" },
