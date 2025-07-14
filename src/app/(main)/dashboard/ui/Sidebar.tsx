@@ -21,11 +21,11 @@ const nav = [
   { href: "/exam-prep", icon: BookOpen, label: "Exam Prep" },
   { href: "/ai-tutor/cat", icon: Bot, label: "AI Tutor" },
   { href: "/video-mode", icon: Video, label: "Video Mode" },
-  { href: "#", icon: Edit3, label: "Practice" },
+  { href: "/practice", icon: Edit3, label: "Practice" },
   { href: "#", icon: HelpCircle, label: "Ask Tutor" },
   { href: "#", icon: Book, label: "Mock Examinations" },
   { href: "#", icon: Upload, label: "Upload" },
-  { href: "#", icon: Settings, label: "Settings" },
+  { href: "/settings", icon: Settings, label: "Settings" },
 ];
 
 export function Sidebar({ active }: SidebarProps) {
