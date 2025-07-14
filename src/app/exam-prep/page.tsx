@@ -40,7 +40,7 @@ export default function ExamPrepPage() {
       <Sidebar active="/exam-prep" />
       <div className="flex flex-1 flex-col lg:pl-64">
         <Topbar />
-        <main className="flex-1 overflow-y-auto p-6 space-y-8 max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto p-6 space-y-8">
           <section className="space-y-3">
             <h1 className="text-3xl font-bold tracking-tight">
               Choose Your Examination!!
@@ -58,7 +58,16 @@ export default function ExamPrepPage() {
             </div>
           </section>
 
-          <ExamGrid exams={filteredExams} />
+          <div className="px-1 sm:px-0">
+            <div className="min-h-[300px]">
+              <ExamGrid exams={filteredExams} />
+            </div>
+            {filteredExams.length === 0 && (
+              <div className="text-center text-gray-500 mt-8">
+                No exams found.
+              </div>
+            )}
+          </div>
         </main>
       </div>
     </div>
