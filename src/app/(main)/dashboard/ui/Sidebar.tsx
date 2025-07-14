@@ -20,7 +20,7 @@ const nav = [
   { href: "/dashboard", icon: Home, label: "Dashboard" },
   { href: "/exam-prep", icon: BookOpen, label: "Exam Prep" },
   { href: "/ai-tutor/cat", icon: Bot, label: "AI Tutor" },
-  { href: "#", icon: Video, label: "Video Mode" },
+  { href: "/video-mode", icon: Video, label: "Video Mode" },
   { href: "#", icon: Edit3, label: "Practice" },
   { href: "#", icon: HelpCircle, label: "Ask Tutor" },
   { href: "#", icon: Book, label: "Mock Examinations" },

@@ -16,7 +16,13 @@ export function WeeklyProgressChart({
     const initChart = async () => {
       try {
         // Validate series data before proceeding
-        if (!series || !series.labels || !series.values || !Array.isArray(series.labels) || !Array.isArray(series.values)) {
+        if (
+          !series ||
+          !series.labels ||
+          !series.values ||
+          !Array.isArray(series.labels) ||
+          !Array.isArray(series.values)
+        ) {
           console.warn("Invalid series data provided to WeeklyProgressChart");
           setError("Invalid chart data");
           setIsLoading(false);

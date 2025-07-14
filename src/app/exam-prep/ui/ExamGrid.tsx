@@ -6,7 +6,7 @@ export function ExamGrid({ exams }: { exams: Exam[] }) {
   return (
     <section className="flex flex-wrap justify-center gap-6">
       {exams.map((ex) => (
-        <Link key={ex.id} href={`/tutor/${ex.id}`} className="block">
+        <Link key={ex.id} href={`/ai-tutor/${ex.id}`} className="block">
           <ExamCard exam={ex} />
         </Link>
       ))}
@@ -24,4 +24,4 @@ function ExamCard({ exam }: { exam: Exam }) {
       </p>
     </div>
   );
-} 
+}

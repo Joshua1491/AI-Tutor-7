@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { z } from "zod";
 
-const StatsSchema = z.object({
-  streak: z.number(),
-  xp: z.number(),
-  progress: z.number(),
-  suggestion: z.string(),
-});
-export type Stats = z.infer<typeof StatsSchema>;
+export type Stats = {
+  streak: number;
+  xp: number;
+  progress: number;
+  suggestion: string;
+};
 
 export interface QuickAction {
   label: string;

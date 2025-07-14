@@ -1,25 +1,40 @@
 "use client";
 import { useState } from "react";
 import { Subject } from "../../logic";
+import { TopicGrid } from "./TopicGrid";
 
 type Props = {
   subjects: Subject[];
   defaultId: string;
-  children: (active: Subject) => React.ReactNode;
 };
 
-export function SubjectTabs({ subjects, defaultId, children }: Props) {
-  const [active, setActive] = useState(defaultId);
-  const activeSub = subjects.find((s) => s.id === active)!;
+export function SubjectTabs({ subjects, defaultId }: Props) {
+  // Ensure defaultId exists in subjects, otherwise use first subject
+  const validDefaultId =
+    subjects?.find((s) => s.id === defaultId)?.id || subjects?.[0]?.id || "";
+
+  const [active, setActive] = useState(validDefaultId);
+
+  // Safety check: if no subjects, return early
+  if (!subjects || subjects.length === 0) {
+    return <div>No subjects available</div>;
+  }
+
+  const activeSub = subjects.find((s) => s.id === active);
+
+  // Safety check: if no active subject, return early
+  if (!activeSub) {
+    return <div>Subject not found</div>;
+  }
 
   return (
     <>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 justify-center items-center overflow-x-auto whitespace-nowrap py-2">
         {subjects.map((s) => (
           <button
             key={s.id}
             onClick={() => setActive(s.id)}
-            className={`rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium ${
+            className={`rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium whitespace-nowrap w-[14rem] flex-none text-center ${
               s.id === active
                 ? "bg-indigo-600 text-white"
                 : "bg-gray-100 hover:bg-gray-200"
@@ -29,7 +44,7 @@ export function SubjectTabs({ subjects, defaultId, children }: Props) {
           </button>
         ))}
       </div>
-      {children(activeSub)}
+      <TopicGrid topics={activeSub.topics || []} />
     </>
   );
-} 
+}

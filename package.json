@@ -49,8 +49,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "overrides": {
-    "tailwindcss": "3.4.4"
   }
 }

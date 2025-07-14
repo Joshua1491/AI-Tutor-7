@@ -28,4 +28,4 @@ export function Filters({ categories, active, onSelect }: FiltersProps) {
       })}
     </>
   );
-} 
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-pnpm lint
-pnpm test
-prettier --check .
+npm run lint
+npm test
+npx prettier --check .
 
