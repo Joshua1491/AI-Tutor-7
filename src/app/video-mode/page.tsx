@@ -121,7 +121,7 @@ export default function VideoModePage({
           setCategoryId(id);
           setStep("exam");
         }}
-        onClose={() => setStep("category")}
+        onClose={() => setStep("topic")}
       />
 
       <ExamModal
