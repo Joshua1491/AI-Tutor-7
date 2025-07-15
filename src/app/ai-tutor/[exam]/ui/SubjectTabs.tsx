@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Subject } from "../../logic";
 import { TopicGrid } from "./TopicGrid";
 
@@ -14,6 +14,17 @@ export function SubjectTabs({ subjects, defaultId }: Props) {
     subjects?.find((s) => s.id === defaultId)?.id || subjects?.[0]?.id || "";
 
   const [active, setActive] = useState(validDefaultId);
+  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  useEffect(() => {
+    if (tabRefs.current[active]) {
+      tabRefs.current[active]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [active]);
 
   // Safety check: if no subjects, return early
   if (!subjects || subjects.length === 0) {
@@ -33,6 +44,9 @@ export function SubjectTabs({ subjects, defaultId }: Props) {
         {subjects.map((s) => (
           <button
             key={s.id}
+            ref={(el) => {
+              tabRefs.current[s.id] = el;
+            }}
             onClick={() => setActive(s.id)}
             className={`rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium whitespace-nowrap w-[14rem] flex-none text-center ${
               s.id === active
