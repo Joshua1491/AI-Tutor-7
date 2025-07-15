@@ -50,6 +50,7 @@ export function Sidebar({ active }: SidebarProps) {
           </Link>
         ))}
       </nav>
+      {/* Gradient footer removed */}
     </aside>
   );
 }
