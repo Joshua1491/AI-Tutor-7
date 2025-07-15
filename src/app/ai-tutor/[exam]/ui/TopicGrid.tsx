@@ -13,21 +13,20 @@ export function TopicGrid({ topics }: { topics: Topic[] }) {
 
   return (
     <div className="mt-8 grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {topics.map((t, idx) => (
+      {topics.map((t) => (
         <button
           key={t.id}
-          style={{ animationDelay: `${0.05 * idx + 0.3}s` }}
-          className="relative overflow-hidden rounded-xl transform-gpu transition hover:scale-105 animate-[fadeSlide_0.5s_both] group"
+          className="relative overflow-hidden rounded-xl border border-white/20 transform-gpu transition-transform duration-200 will-change-transform hover:scale-105 hover:shadow-lg group"
         >
           <div
-            className={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-80 transition group-hover:opacity-90`}
+            className={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-80 transition group-hover:opacity-90 rounded-xl`}
           />
           <Image
             src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=1080&q=80"
             alt=""
             width={1080}
             height={1080}
-            className="absolute inset-0 h-full w-full object-cover mix-blend-overlay"
+            className="absolute inset-0 h-full w-full object-cover mix-blend-overlay rounded-xl"
           />
           <div className="relative flex h-32 flex-col items-center justify-center p-4">
             <svg
