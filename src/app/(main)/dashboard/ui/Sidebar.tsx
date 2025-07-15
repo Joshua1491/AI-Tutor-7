@@ -50,8 +50,7 @@ export function Sidebar({ active }: SidebarProps) {
           </Link>
         ))}
       </nav>
-      {/* Gradient footer */}
-      <div className="mx-4 mb-4 mt-auto h-20 rounded-t-xl bg-gradient-to-br from-blue-600 to-purple-700" />
+      {/* Gradient footer removed */}
     </aside>
   );
 }
